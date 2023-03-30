@@ -65,6 +65,7 @@ def podcast_summary():
             name_end = episode["link"].split('/')[-1]
             filename = f"{name_end}.mp3"
             audio_path = os.path.join(EPISODE_FOLDER, filename)
+            # Checking if the file is already downloaded before
             if not os.path.exists(audio_path):
                 print(f"Downloading {filename}")
                 audio = requests.get(episode["enclosure"]["@url"])
